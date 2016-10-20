@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/mainScreenLayout">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/aboutScreen" android:layout_weight="1"
+                android:gravity="top|center" android:visibility="gone">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/about"
+                      android:id="@+id/textView5" android:textSize="30dp" android:gravity="center"/>
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/about_text"
+                    android:id="@+id/aboutText" android:gravity="center" android:background="#00010101"
+                    android:layout_weight="1"/>
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sellout"
+                    android:id="@+id/feedbackButton"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/settingsScreen" android:layout_weight="1"
+                android:visibility="gone" android:gravity="top|center">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="Настройки"
+                      android:id="@+id/textView4" android:textSize="30dp" android:gravity="center"/>
+            <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Онлайн словарь"
+                    android:id="@+id/onlineModeButton" android:textSize="20dp" android:layout_marginTop="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/topageScreen" android:layout_gravity="top|center_horizontal"
+                android:layout_weight="1" android:visibility="gone">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/topage"
+                      android:id="@+id/textView6" android:textSize="30dp" android:gravity="center"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:gravity="center">
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/editText" android:hint="@string/page_number" android:gravity="center"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/go"
+                        android:id="@+id/button"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/historyScreen" android:visibility="gone"
+                android:layout_weight="1" android:gravity="top|center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/history"
+                    android:id="@+id/textView" android:textSize="30dp"/>
+            <ListView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/historyList" android:layout_margin="5dp" android:background="#414141"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/learnScreen" android:visibility="gone"
+                android:layout_weight="1" android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/learn"
+                      android:id="@+id/textView3" android:textSize="30dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:gravity="center">
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="120dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/no_words_message"
+                        android:id="@+id/wordMemoTextView"
+                        android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+                        android:singleLine="true" android:enabled="true"
+                        android:gravity="center" android:background="#414141"/>
+                <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/show_translation"
+                        android:id="@+id/translateButton" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp" android:enabled="false"/>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" android:gravity="center">
+                    <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/remembered"
+                            android:id="@+id/rememberedButton"
+                            android:layout_weight="1" android:layout_marginLeft="20dp" android:enabled="false"/>
+                    <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/forgot"
+                            android:id="@+id/forgotButton"
+                            android:layout_marginRight="20dp" android:layout_weight="1" android:enabled="false"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:visibility="gone" android:id="@+id/booksScreen"
+                android:layout_weight="1" android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/books"
+                      android:id="@+id/textView2" android:textSize="30dp"/>
+            <ListView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/booksList" android:layout_weight="1" android:choiceMode="singleChoice"
+                    android:background="#414141"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_book"
+                    android:id="@+id/addBookButton" android:layout_margin="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="10" android:id="@+id/mainScreen"
+                android:visibility="visible">
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="стр. 10/100"
+                    android:id="@+id/pageData" android:background="#414141"/>
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainTextView"
+
+                    android:layout_weight="10" android:textSize="20dp"
+                    android:text="@string/no_book_message"
+                    android:singleLine="false" android:textIsSelectable="false" android:layout_margin="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" android:gravity="bottom|center" android:background="#414141"
+                android:id="@+id/bottomMenu"
+        >
+            <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/booksButton" android:src="@drawable/bookselect" android:maxHeight="32dp"
+                    android:maxWidth="32dp" android:minHeight="32dp" android:minWidth="32dp"
+                    android:layout_marginLeft="10dp" android:layout_marginRight="10dp" android:background="#00010101"
+                    android:clickable="true" android:onClick="booksToggle"/>
+            <ImageButton android:layout_width="50dp" android:layout_height="50dp" android:id="@+id/learnButton"
+                         android:src="@drawable/learn" android:maxHeight="32dp" android:maxWidth="32dp"
+                         android:minHeight="32dp" android:minWidth="32dp" android:layout_marginLeft="10dp"
+                         android:layout_marginRight="10dp" android:background="#00ffffff" android:clickable="true"
+                         android:onClick="learnToggle"/>
+            <ImageButton android:layout_width="50dp" android:layout_height="50dp" android:id="@+id/historyButton"
+                         android:src="@drawable/history" android:maxHeight="32dp" android:maxWidth="32dp"
+                         android:minHeight="32dp" android:minWidth="32dp" android:layout_marginLeft="10dp"
+                         android:layout_marginRight="10dp" android:background="#00ffffff" android:clickable="true"
+                         android:onClick="historyToggle"/>
+            <ImageButton android:layout_width="50dp" android:layout_height="50dp" android:id="@+id/topageButton"
+                         android:src="@drawable/topage" android:maxHeight="32dp" android:maxWidth="32dp"
+                         android:minHeight="32dp" android:minWidth="32dp" android:layout_marginLeft="10dp"
+                         android:layout_marginRight="10dp" android:background="#00ffffff" android:clickable="true"
+                         android:onClick="topageToggle"/>
+            <ImageButton android:layout_width="50dp" android:layout_height="50dp" android:id="@+id/aboutButton"
+                         android:src="@drawable/about" android:maxHeight="32dp" android:maxWidth="32dp"
+                         android:minHeight="32dp" android:minWidth="32dp" android:layout_marginLeft="10dp"
+                         android:layout_marginRight="10dp" android:background="#00ffffff" android:clickable="true"
+                         android:onClick="aboutToggle"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

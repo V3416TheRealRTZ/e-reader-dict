@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">e-reader-dict</string>
+    <string name="page">стр.</string>
+    <string name="no_book_message">Не выбрана книга</string>
+    <string name="books">Ваши книги</string>
+    <string name="add_book">Добавить книгу</string>
+    <string name="learn">Обучение</string>
+    <string name="no_words_message">Нет слов для повторения</string>
+    <string name="show_translation">Показать перевод</string>
+    <string name="remembered">Помнил</string>
+    <string name="forgot">Забыл</string>
+    <string name="history">История переводов</string>
+    <string name="topage">Перейти на страницу</string>
+    <string name="page_number">Номер страницы</string>
+    <string name="go">Перейти</string>
+    <string name="about">Справка</string>
+    <string name="sellout">Оставить отзыв в Play Market!</string>
+    <string name="about_text">
+        Программисты:\n
+        Кравченко Иван\n
+        Ионченкова Мария\n
+        Куликова Елена\n
+        \n
+        Дизайнеры:\n
+        Кравченко Иван\n
+        \n
+        E-mail для отзывов и предложений:\n
+        mylo@mylo.mylo\n
+    </string>
+</resources>
