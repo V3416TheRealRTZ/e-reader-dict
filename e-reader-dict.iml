@@ -15,5 +15,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="epublib-core-3.1" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-android-1.6.1-RC1" level="project" />
   </component>
 </module>

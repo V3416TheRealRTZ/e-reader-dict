@@ -1,14 +1,24 @@
 package com.example.e_reader_dict;
 
 import android.app.Activity;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
+import nl.siegmann.epublib.domain.Book;
+import nl.siegmann.epublib.domain.Resource;
+import nl.siegmann.epublib.domain.Spine;
+import nl.siegmann.epublib.domain.SpineReference;
+import nl.siegmann.epublib.epub.EpubReader;
 
 import java.io.*;
 import java.util.ArrayList;
+
+enum BookType {TXT, EPUB}
 
 public class EReaderActivity extends Activity {
     private LinearLayout booksScreen, learnScreen, historyScreen, topageScreen, aboutScreen;
@@ -19,6 +29,13 @@ public class EReaderActivity extends Activity {
     private ListView booksList;
     private ArrayList<String> books;
     private ArrayList<String> booksPaths;
+    private ArrayList<BookType> bookTypes;
+    private Book currentEpub;
+    private String currentTxt;
+    private ArrayList<String> pages;
+    private int currentPage;
+    private int currentBookId;
+    private TextView mainText;
     /**
      * Called when the activity is first created.
      */
@@ -37,13 +54,54 @@ public class EReaderActivity extends Activity {
         aboutScreen = (LinearLayout)findViewById(R.id.aboutScreen);
         aboutButton = (ImageButton) findViewById(R.id.aboutButton);
         pageData = (TextView) findViewById(R.id.pageData);
+        mainText = (TextView) findViewById(R.id.mainTextView);
         booksList = (ListView) findViewById(R.id.booksList);
+        pages = new ArrayList<>();
         books = new ArrayList<>();
         booksPaths = new ArrayList<>();
+        bookTypes = new ArrayList<>();
         createProgramDirectoryIfDoesntExist();
         addBook(null);
+        currentEpub = null;
+        currentTxt = null;
+        currentBookId = -1;
+        mainText.setOnTouchListener(new OnSwipeTouchListener(EReaderActivity.this) {
+            public void onSwipeTop() {
+                //Toast.makeText(EReaderActivity.this, "top", Toast.LENGTH_SHORT).show();
+            }
+            public void onSwipeRight() {
+                backFlipPage();
+            }
+            public void onSwipeLeft() {
+                flipPage();
+            }
+            public void onSwipeBottom() {
+                //Toast.makeText(EReaderActivity.this, "bottom", Toast.LENGTH_SHORT).show();
+            }
+
+        });
         //Log.i("File Reading stuff", programDirectory);
         //fileChooser.
+    }
+
+    private boolean isTooLarge (TextView text, String newText) {
+        float textWidth = text.getPaint().measureText(newText);
+        return (textWidth >= text.getMeasuredWidth ());
+    }
+
+    private ArrayList<String> getPages(char [] buffer) {
+        String rawText = new String(buffer);
+        int curIndex = 0;
+        ArrayList<String> pages = new ArrayList<>();
+        while (curIndex < rawText.length()) {
+            int curLen = 500;
+            while (curIndex + curLen < rawText.length() &&  !isTooLarge(mainText, rawText.substring(curIndex, curIndex + curLen))) {
+                curLen+=10;
+            }
+            pages.add(rawText.substring(curIndex, Math.min(curIndex + curLen, rawText.length()-1)));
+            curIndex += curLen;
+        }
+        return pages;
     }
 
     private void updateMenu(LinearLayout screen, ImageButton button, Boolean value) {
@@ -97,6 +155,7 @@ public class EReaderActivity extends Activity {
         File booksFile = new File(programDirectory + File.separator + "books");
         String readString = "";
         booksPaths.clear();
+        
         try {
             if (booksFile.exists()) {
 
@@ -132,21 +191,104 @@ public class EReaderActivity extends Activity {
         updateBooks();
     }
 
+    private void openTxt(int id) {
+        currentTxt = "";
+        currentEpub = null;
+        pages.clear();
+        try {
+            FileInputStream fIn = new FileInputStream (booksPaths.get(currentBookId));
+            InputStreamReader isr = new InputStreamReader(fIn);
+            char[] inputBuffer = new char[fIn.available()];
+            isr.read(inputBuffer);
+            ArrayList<String> newPages = getPages(inputBuffer);
+            for (String page : newPages) {
+                pages.add(page);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        currentPage = 0;
+        mainText.setText(pages.get(currentPage));
+        booksToggle(null);
+    }
+
+    private void flipPage() {
+        gotoPage(currentPage+1);
+    }
+
+    private void backFlipPage() {
+        gotoPage(currentPage-1);
+    }
+
+    private void gotoPage(int pageNumber) {
+        if (pageNumber >= 0 && pageNumber < pages.size()) {
+            currentPage = pageNumber;
+            mainText.setText(pages.get(currentPage));
+        } else {
+            //Toast toast = new Toast("END");
+        }
+    }
+
+    private void openEpub(int id) {
+        currentTxt = null;
+        currentEpub = new Book();
+        EpubReader epubReader = new EpubReader();
+        pages.clear();
+        try {
+            currentEpub = epubReader.readEpub(new FileInputStream(booksPaths.get(id)));
+            Spine spine = new Spine(currentEpub.getTableOfContents());
+            for (SpineReference bookSection : spine.getSpineReferences()) {
+                Resource res = bookSection.getResource();
+                InputStream is = res.getInputStream();
+                char[] inputBuffer = new char[is.available()];
+                InputStreamReader isr = new InputStreamReader(is);
+                isr.read(inputBuffer);
+                ArrayList<String> newPages = getPages(inputBuffer);
+                for (String page : newPages) {
+                    pages.add(page);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        currentPage = 0;
+        mainText.setText(pages.get(currentPage));
+        booksToggle(null);
+        //Book book = op
+    }
+
     private void updateBooks() {
         books.clear();
+        bookTypes.clear();
         for (String bookPath : booksPaths) {
             if (bookPath != null) {
                 String words[] = bookPath.split(File.separator);
                 String name = words[words.length - 1];
-                /*if (name.endsWith(".txt")) {
-                    name = name.substring(0, name.length() - 4);
+                if (name.endsWith(".txt")) {
+                    bookTypes.add(BookType.TXT);
+                    //name = name.substring(0, name.length() - 4);
                 } else {
-                    name = name.substring(0, name.length() - 5);
-                }*/
+                    bookTypes.add(BookType.EPUB);
+                    //name = name.substring(0, name.length() - 5);
+                }
                 books.add(name);
             }
         }
-        booksList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, books));
+        booksList.setAdapter(new ArrayAdapter<String>(this, R.layout.book_entry_layout, books));
+        booksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Log.i("book id", "id: " + id);
+                currentBookId = (int)id;
+                if (bookTypes.get((int)id) == BookType.TXT) {
+                    openTxt((int)id);
+                } else {
+                    openEpub((int)id);
+                }
+            }
+        });
     }
 
     public void booksToggle(View v) {
