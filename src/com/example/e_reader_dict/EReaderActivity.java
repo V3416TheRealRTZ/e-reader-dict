@@ -21,8 +21,9 @@ import java.util.ArrayList;
 enum BookType {TXT, EPUB}
 
 public class EReaderActivity extends Activity {
-    private LinearLayout booksScreen, learnScreen, historyScreen, topageScreen, aboutScreen;
-    private ImageButton booksButton, learnButton, historyButton, topageButton, aboutButton;
+    private LinearLayout booksScreen, learnScreen, historyScreen, topageScreen, aboutScreen, settingsScreen;
+    private ImageButton booksButton, learnButton, historyButton, topageButton, settingsButton;
+    Button aboutButton;
     private TextView pageData;
     private FileChooser fileChooser;
     private String programDirectory;
@@ -51,8 +52,10 @@ public class EReaderActivity extends Activity {
         historyButton = (ImageButton) findViewById(R.id.historyButton);
         topageScreen = (LinearLayout)findViewById(R.id.topageScreen);
         topageButton = (ImageButton) findViewById(R.id.topageButton);
+        settingsScreen = (LinearLayout)findViewById(R.id.settingsScreen);
         aboutScreen = (LinearLayout)findViewById(R.id.aboutScreen);
-        aboutButton = (ImageButton) findViewById(R.id.aboutButton);
+        settingsButton = (ImageButton) findViewById(R.id.settingsButton);
+        aboutButton = (Button) findViewById(R.id.aboutButton);
         pageData = (TextView) findViewById(R.id.pageData);
         mainText = (TextView) findViewById(R.id.mainTextView);
         booksList = (ListView) findViewById(R.id.booksList);
@@ -71,15 +74,18 @@ public class EReaderActivity extends Activity {
             }
             public void onSwipeRight() {
                 backFlipPage();
+                updatePageNumber();
             }
             public void onSwipeLeft() {
                 flipPage();
+                updatePageNumber();
             }
             public void onSwipeBottom() {
                 //Toast.makeText(EReaderActivity.this, "bottom", Toast.LENGTH_SHORT).show();
             }
 
         });
+        pageData.setText("");
         //Log.i("File Reading stuff", programDirectory);
         //fileChooser.
     }
@@ -104,13 +110,13 @@ public class EReaderActivity extends Activity {
         return pages;
     }
 
-    private void updateMenu(LinearLayout screen, ImageButton button, Boolean value) {
+    private void updateMenu(LinearLayout screen, View v, Boolean value) {
         if (value) {
             screen.setVisibility(View.VISIBLE);
-            button.setAlpha(0.5f);
+            v.setAlpha(0.5f);
         } else {
             screen.setVisibility(View.GONE);
-            button.setAlpha(1.0f);
+            v.setAlpha(1.0f);
         }
     }
 
@@ -120,6 +126,7 @@ public class EReaderActivity extends Activity {
         updateMenu(historyScreen, historyButton, menus.get(2));
         updateMenu(topageScreen, topageButton, menus.get(3));
         updateMenu(aboutScreen, aboutButton, menus.get(4));
+        updateMenu(settingsScreen, settingsButton, menus.get(5));
         for (int i =0; i < menus.size(); ++i) {
             if (menus.get(i)) {
                 pageData.setVisibility(View.GONE);
@@ -155,7 +162,7 @@ public class EReaderActivity extends Activity {
         File booksFile = new File(programDirectory + File.separator + "books");
         String readString = "";
         booksPaths.clear();
-        
+
         try {
             if (booksFile.exists()) {
 
@@ -166,9 +173,7 @@ public class EReaderActivity extends Activity {
                 do {
                     readString += line + '\n';
                     Log.i("Path", "path: " + line + '\n');
-                    if (!booksPaths.contains(line)) {
-                        booksPaths.add(line);
-                    }
+                    booksPaths.add(line);
                     line = reader.readLine();
                     /**/
                 } while (line != null);
@@ -180,8 +185,13 @@ public class EReaderActivity extends Activity {
             if (newBookFilePath != null) {
                 FileOutputStream fOut = new FileOutputStream(new File(booksFile.getPath()));//openFileOutput("books.txt", MODE_WORLD_READABLE);
                 OutputStreamWriter osw = new OutputStreamWriter(fOut);
-                osw.write(readString + newBookFilePath + '\n');
-                booksPaths.add(newBookFilePath);
+                if (!booksPaths.contains(newBookFilePath)) {
+                    osw.write(readString + newBookFilePath + '\n');
+                    booksPaths.add(newBookFilePath);
+                } else {
+                    osw.write(readString);
+                    Toast.makeText(EReaderActivity.this, "already added", Toast.LENGTH_SHORT).show();
+                }
                 Log.i("File Reading stuff", "read string: " + readString + newBookFilePath + '\n');
                 osw.flush();
                 osw.close();
@@ -212,6 +222,11 @@ public class EReaderActivity extends Activity {
         currentPage = 0;
         mainText.setText(pages.get(currentPage));
         booksToggle(null);
+        updatePageNumber();
+    }
+
+    private void updatePageNumber() {
+        pageData.setText(getString(R.string.page) + " " + (currentPage + 1) + "/" + pages.size());
     }
 
     private void flipPage() {
@@ -227,6 +242,7 @@ public class EReaderActivity extends Activity {
             currentPage = pageNumber;
             mainText.setText(pages.get(currentPage));
         } else {
+            Toast.makeText(EReaderActivity.this, "cant flip that way", Toast.LENGTH_SHORT).show();
             //Toast toast = new Toast("END");
         }
     }
@@ -256,6 +272,7 @@ public class EReaderActivity extends Activity {
         currentPage = 0;
         mainText.setText(pages.get(currentPage));
         booksToggle(null);
+        updatePageNumber();
         //Book book = op
     }
 
@@ -292,26 +309,27 @@ public class EReaderActivity extends Activity {
     }
 
     public void booksToggle(View v) {
-        ArrayList<Boolean> menus = formMenusArray(5, 0, booksButton.getAlpha() != 0.5f);
+        ArrayList<Boolean> menus = formMenusArray(6, 0, booksButton.getAlpha() != 0.5f);
         updateMenus(menus);
     }
     public void learnToggle(View v) {
-        ArrayList<Boolean> menus = formMenusArray(5, 1, learnButton.getAlpha() != 0.5f);
+        ArrayList<Boolean> menus = formMenusArray(6, 1, learnButton.getAlpha() != 0.5f);
         updateMenus(menus);
     }
     public void historyToggle(View v) {
-        ArrayList<Boolean> menus = formMenusArray(5, 2, historyButton.getAlpha() != 0.5f);
+        ArrayList<Boolean> menus = formMenusArray(6, 2, historyButton.getAlpha() != 0.5f);
         updateMenus(menus);
     }
     public void topageToggle(View v) {
-        ArrayList<Boolean> menus = formMenusArray(5, 3, topageButton.getAlpha() != 0.5f);
+        ArrayList<Boolean> menus = formMenusArray(6, 3, topageButton.getAlpha() != 0.5f);
         updateMenus(menus);
     }
     public void settingsToggle(View v) {
-
+        ArrayList<Boolean> menus = formMenusArray(6, 5, settingsButton.getAlpha() != 0.5f);
+        updateMenus(menus);
     }
     public void aboutToggle(View v) {
-        ArrayList<Boolean> menus = formMenusArray(5, 4, aboutButton.getAlpha() != 0.5f);
+        ArrayList<Boolean> menus = formMenusArray(6, 4, aboutScreen.getVisibility() != View.VISIBLE);
         updateMenus(menus);
     }
 

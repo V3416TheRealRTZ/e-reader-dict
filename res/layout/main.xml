@@ -43,6 +43,13 @@
                     android:layout_height="wrap_content"
                     android:text="Онлайн словарь"
                     android:id="@+id/onlineModeButton" android:textSize="20dp" android:layout_marginTop="20dp"/>
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about"
+                    android:id="@+id/aboutButton" android:layout_gravity="center_horizontal" android:layout_margin="20dp"
+                    android:onClick="aboutToggle"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -140,7 +147,7 @@
                       android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/books"
                       android:id="@+id/textView2" android:textSize="30dp"/>
             <ListView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/booksList" android:layout_weight="1"
                     android:background="#414141"/>
@@ -198,11 +205,11 @@
                          android:minHeight="32dp" android:minWidth="32dp" android:layout_marginLeft="10dp"
                          android:layout_marginRight="10dp" android:background="#00ffffff" android:clickable="true"
                          android:onClick="topageToggle"/>
-            <ImageButton android:layout_width="50dp" android:layout_height="50dp" android:id="@+id/aboutButton"
-                         android:src="@drawable/about" android:maxHeight="32dp" android:maxWidth="32dp"
+            <ImageButton android:layout_width="50dp" android:layout_height="50dp" android:id="@+id/settingsButton"
+                         android:src="@drawable/settings" android:maxHeight="32dp" android:maxWidth="32dp"
                          android:minHeight="32dp" android:minWidth="32dp" android:layout_marginLeft="10dp"
                          android:layout_marginRight="10dp" android:background="#00ffffff" android:clickable="true"
-                         android:onClick="aboutToggle"/>
+                         android:onClick="settingsToggle"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
