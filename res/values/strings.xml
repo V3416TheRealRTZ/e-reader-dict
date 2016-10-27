@@ -4,6 +4,7 @@
     <string name="page">стр.</string>
     <string name="no_book_message">Не выбрана книга</string>
     <string name="books">Ваши книги</string>
+    <string name="cancel_add_book">Закрыть меню выбора книги</string>
     <string name="add_book">Добавить книгу</string>
     <string name="learn">Обучение</string>
     <string name="no_words_message">Нет слов для повторения</string>
