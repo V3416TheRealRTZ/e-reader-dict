@@ -29,4 +29,10 @@
         E-mail для отзывов и предложений:\n
         mylo@mylo.mylo\n
     </string>
+    <string name="nopage">Туда листать нельзя!</string>
+    <string name="loadtxt">Подождите, идет разделение книги на страницы...</string>
+    <string name="loadepub">Подождите, идет разделение главы</string>
+    <string name="of">из</string>
+    <string name="topages">на страницы...</string>
+
 </resources>
