@@ -57,7 +57,8 @@ class BookLoadAsyncTask extends AsyncTask<Void, Integer, Void> {
         activity.pages = pages;
         activity.currentPage = 0;
         if (pages.size() > 0) {
-            mainText.setText(pages.get(activity.currentPage));
+            activity.gotoPage(activity.currentPage);
+            //mainText.setText(pages.get(activity.currentPage), TextView.BufferType.SPANNABLE);
         }
         activity.booksToggle(null);
         activity.updatePageNumber();

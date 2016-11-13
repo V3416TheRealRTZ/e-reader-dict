@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Spannable;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,7 +23,9 @@ import nl.siegmann.epublib.domain.SpineReference;
 import nl.siegmann.epublib.epub.EpubReader;
 
 import java.io.*;
+import java.text.BreakIterator;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.concurrent.CountDownLatch;
 
 enum BookType {TXT, EPUB}
@@ -89,6 +95,7 @@ public class EReaderActivity extends Activity {
         currentEpub = null;
         currentTxt = null;
         currentBookId = -1;
+        mainText.setMovementMethod(LinkMovementMethod.getInstance());
         mainText.setOnTouchListener(new OnSwipeTouchListener(EReaderActivity.this) {
             public void onSwipeTop() {
                 //Toast.makeText(EReaderActivity.this, "top", Toast.LENGTH_SHORT).show();
@@ -108,6 +115,28 @@ public class EReaderActivity extends Activity {
         pageData.setText("");
         //Log.i("File Reading stuff", programDirectory);
         //fileChooser.
+
+    }
+
+    private ClickableSpan getClickableSpan(final String word) {
+        return new ClickableSpan() {
+            final String mWord;
+            {
+                mWord = word;
+            }
+
+            @Override
+            public void onClick(View widget) {
+                Log.d("tapped on:", mWord);
+                TranslateDialog translateDialog = new TranslateDialog(EReaderActivity.this, mWord);
+                translateDialog.show();
+                //Toast.makeText(widget.getContext(), mWord, Toast.LENGTH_SHORT).show();
+            }
+
+            public void updateDrawState(TextPaint ds) {
+                //super.updateDrawState(ds);
+            }
+        };
     }
 
     private void updateMenu(LinearLayout screen, View v, Boolean value) {
@@ -215,11 +244,26 @@ public class EReaderActivity extends Activity {
         gotoPage(currentPage-1);
     }
 
-    private void gotoPage(int pageNumber) {
+    protected void gotoPage(int pageNumber) {
         if (pageNumber >= 0 && pageNumber < pages.size()) {
             currentPage = pageNumber;
-            mainText.setText(pages.get(currentPage));
+            mainText.setText(pages.get(currentPage), TextView.BufferType.SPANNABLE);
             updatePageNumber();
+
+            Spannable spans = (Spannable) mainText.getText();
+            BreakIterator iterator = BreakIterator.getWordInstance(Locale.US);
+            iterator.setText(pages.get(currentPage));
+            int start = iterator.first();
+            for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator
+                    .next()) {
+                String possibleWord = pages.get(currentPage).substring(start, end);
+                if (Character.isLetter(possibleWord.charAt(0))) {
+                    ClickableSpan clickSpan = getClickableSpan(possibleWord);
+                    spans.setSpan(clickSpan, start, end,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
+            }
+
         } else {
             Toast.makeText(EReaderActivity.this, getString(R.string.nopage), Toast.LENGTH_SHORT).show();
             //Toast toast = new Toast("END");
@@ -297,5 +341,9 @@ public class EReaderActivity extends Activity {
                 }
             }
         });
+    }
+
+    public void chooseWord(View v) {
+
     }
 }

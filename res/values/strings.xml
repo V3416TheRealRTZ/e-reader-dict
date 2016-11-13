@@ -34,5 +34,9 @@
     <string name="loadepub">Подождите, идет разделение главы</string>
     <string name="of">из</string>
     <string name="topages">на страницы...</string>
-
+    <string name="translate">Перевести</string>
+    <string name="cancel">Отмена</string>
+    <string name="translates_to">=</string>
+    <string name="yandex_key">trnsl.1.1.20161018T161515Z.824fbc26059b6559.9e9ec70413f874a1a9a110795b060e063eb0c65b</string>
+    <string name="yandex_url">https://translate.yandex.net/api/v1.5/tr.json/translate</string>
 </resources>
