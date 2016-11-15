@@ -10,20 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="674aa55c-488c-4f33-8fd3-94d0d76fb36b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/history_entry.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/e_reader_dict/WordsHistoryAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/layout/book_entry_layout.xml" afterPath="$PROJECT_DIR$/res/layout/book_entry.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/EReaderActivity.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/EReaderActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$id.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$layout.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$string.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.apk" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java" afterPath="$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/e_reader_dict/WordTranslateAsyncTask.java" afterPath="$PROJECT_DIR$/src/com/example/e_reader_dict/WordTranslateAsyncTask.java" />
     </list>
     <ignored path="e-reader-dict.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +35,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
               <folding />
             </state>
@@ -58,7 +45,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.1375">
+            <state vertical-scroll-proportion="0.0">
               <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
               <folding />
             </state>
@@ -67,40 +54,40 @@
       </file>
       <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="translate_dialog.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/translate_dialog.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="history_entry.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/history_entry.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -121,7 +108,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="75" column="87" selection-start-line="75" selection-start-column="87" selection-end-line="75" selection-end-column="87" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,7 +121,8 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1206#1207#0" expanded="false" />
+                <element signature="e#1242#1243#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -141,7 +131,7 @@
       <file leaf-file-name="EReaderActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6386555">
+            <state vertical-scroll-proportion="0.9628297">
               <caret line="357" column="13" selection-start-line="357" selection-start-column="13" selection-end-line="357" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -151,12 +141,7 @@
                 <element signature="method#formMenusArray#0;class#EReaderActivity#0" expanded="false" />
                 <element signature="method#createProgramDirectoryIfDoesntExist#0;class#EReaderActivity#0" expanded="false" />
                 <element signature="method#updatePageNumber#0;class#EReaderActivity#0" expanded="false" />
-                <element signature="e#11090#11114#0" expanded="true" />
                 <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
-                <element signature="e#12393#12419#0" expanded="true" />
-                <element signature="e#13698#13725#0" expanded="true" />
-                <element signature="e#15573#15808#0" expanded="true" />
-                <element signature="e#15807#15808#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,8 +160,6 @@
                 <element signature="e#815#816#0" expanded="true" />
                 <element signature="e#872#873#0" expanded="true" />
                 <element signature="e#903#904#0" expanded="true" />
-                <element signature="e#1621#1666#0" expanded="true" />
-                <element signature="e#1777#1820#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -365,7 +348,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
@@ -377,6 +359,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -862,7 +845,13 @@
       <option name="project" value="LOCAL" />
       <updated>1479047756959</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="translation history">
+      <created>1479244802369</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1479244802369</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -876,23 +865,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.49841017" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289166" sideWeight="0.47615263" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5656214" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5696056" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289166" sideWeight="0.6144674" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32866043" sideWeight="0.6156598" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.49682036" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32268122" sideWeight="0.2400636" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.4920509" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289166" sideWeight="0.3855326" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32866043" sideWeight="0.38434023" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.43437862" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.43039444" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -902,7 +889,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289166" sideWeight="0.47615263" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -927,7 +916,8 @@
     <MESSAGE value="separate thread for book loading, epub now works, many UI fixes, &quot;go to page&quot; button works, book loading progress bar" />
     <MESSAGE value="word translating" />
     <MESSAGE value="word translating via Yandex Translate API" />
-    <option name="LAST_COMMIT_MESSAGE" value="word translating via Yandex Translate API" />
+    <MESSAGE value="translation history" />
+    <option name="LAST_COMMIT_MESSAGE" value="translation history" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -966,9 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="129" selection-start-line="30" selection-start-column="129" selection-end-line="30" selection-end-column="129" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -996,14 +983,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/Android/android-sdk/sources/android-16/java/util/ArrayList.java">
@@ -1039,25 +1026,20 @@
             <element signature="method#formMenusArray#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#createProgramDirectoryIfDoesntExist#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#updatePageNumber#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#11090#11114#0" expanded="true" />
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#12393#12419#0" expanded="true" />
-            <element signature="e#13698#13725#0" expanded="true" />
-            <element signature="e#15573#15808#0" expanded="true" />
-            <element signature="e#15807#15808#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/book_entry.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
@@ -1072,9 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="129" selection-start-line="30" selection-start-column="129" selection-end-line="30" selection-end-column="129" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,14 +1081,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/Android/android-sdk/sources/android-16/java/util/ArrayList.java">
@@ -1145,12 +1124,7 @@
             <element signature="method#formMenusArray#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#createProgramDirectoryIfDoesntExist#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#updatePageNumber#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#11090#11114#0" expanded="true" />
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#12393#12419#0" expanded="true" />
-            <element signature="e#13698#13725#0" expanded="true" />
-            <element signature="e#15573#15808#0" expanded="true" />
-            <element signature="e#15807#15808#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1171,14 +1145,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/Android/android-sdk/sources/android-16/java/util/ArrayList.java">
@@ -1214,12 +1188,7 @@
             <element signature="method#formMenusArray#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#createProgramDirectoryIfDoesntExist#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#updatePageNumber#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#11090#11114#0" expanded="true" />
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#12393#12419#0" expanded="true" />
-            <element signature="e#13698#13725#0" expanded="true" />
-            <element signature="e#15573#15808#0" expanded="true" />
-            <element signature="e#15807#15808#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1232,14 +1201,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java">
@@ -1254,25 +1223,20 @@
             <element signature="method#formMenusArray#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#createProgramDirectoryIfDoesntExist#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#updatePageNumber#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#11090#11114#0" expanded="true" />
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#12393#12419#0" expanded="true" />
-            <element signature="e#13698#13725#0" expanded="true" />
-            <element signature="e#15573#15808#0" expanded="true" />
-            <element signature="e#15807#15808#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
@@ -1440,14 +1404,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/book_entry.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/BookLoadAsyncTask.java">
@@ -1464,9 +1428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1474,34 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#24983#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#4801#4802#0" expanded="false" />
-            <element signature="e#4838#4839#0" expanded="false" />
-            <element signature="e#5008#5009#0" expanded="false" />
-            <element signature="e#5070#5071#0" expanded="false" />
-            <element signature="e#7826#7827#0" expanded="false" />
-            <element signature="e#7870#7871#0" expanded="false" />
-            <element signature="e#12432#12433#0" expanded="false" />
-            <element signature="e#12482#12483#0" expanded="false" />
-            <element signature="e#12932#12933#0" expanded="false" />
-            <element signature="e#12987#12988#0" expanded="false" />
-            <element signature="e#13499#13500#0" expanded="false" />
-            <element signature="e#13546#13547#0" expanded="false" />
-            <element signature="e#14276#14277#0" expanded="false" />
-            <element signature="e#14322#14323#0" expanded="false" />
-            <element signature="e#15420#15421#0" expanded="false" />
-            <element signature="e#15470#15471#0" expanded="false" />
-            <element signature="e#16528#16529#0" expanded="false" />
-            <element signature="e#16566#16567#0" expanded="false" />
-            <element signature="e#17612#17613#0" expanded="false" />
-            <element signature="e#17652#17653#0" expanded="false" />
-            <element signature="e#18663#18664#0" expanded="false" />
-            <element signature="e#18705#18706#0" expanded="false" />
-            <element signature="e#21817#21818#0" expanded="false" />
-            <element signature="e#21874#21875#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1509,19 +1442,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="87" selection-start-line="75" selection-start-column="87" selection-end-line="75" selection-end-column="87" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/TranslateDialog.java">
@@ -1535,19 +1470,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/translate_dialog.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
           <folding />
         </state>
@@ -1555,7 +1490,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.1375">
+        <state vertical-scroll-proportion="0.0">
           <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
           <folding />
         </state>
@@ -1566,20 +1501,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="false" />
+            <element signature="e#1242#1243#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/history_entry.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/WordsHistoryAdapter.java">
@@ -1594,15 +1530,13 @@
             <element signature="e#815#816#0" expanded="true" />
             <element signature="e#872#873#0" expanded="true" />
             <element signature="e#903#904#0" expanded="true" />
-            <element signature="e#1621#1666#0" expanded="true" />
-            <element signature="e#1777#1820#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6386555">
+        <state vertical-scroll-proportion="0.9628297">
           <caret line="357" column="13" selection-start-line="357" selection-start-column="13" selection-end-line="357" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1612,12 +1546,7 @@
             <element signature="method#formMenusArray#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#createProgramDirectoryIfDoesntExist#0;class#EReaderActivity#0" expanded="false" />
             <element signature="method#updatePageNumber#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#11090#11114#0" expanded="true" />
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
-            <element signature="e#12393#12419#0" expanded="true" />
-            <element signature="e#13698#13725#0" expanded="true" />
-            <element signature="e#15573#15808#0" expanded="true" />
-            <element signature="e#15807#15808#0" expanded="true" />
           </folding>
         </state>
       </provider>
