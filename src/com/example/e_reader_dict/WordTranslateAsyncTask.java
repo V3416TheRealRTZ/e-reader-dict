@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import org.apache.http.NameValuePair;
@@ -19,12 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WordTranslateAsyncTask extends AsyncTask<String, Void, String> {
-    Context context;
+    EReaderActivity context;
+    String input = "";
     String result = "";
     TextView resultText;
     LinearLayout translatingScreen, resultScreen;
 
-    public WordTranslateAsyncTask(Context context, TextView resultText, LinearLayout translatingScreen, LinearLayout resultScreen) {
+    public WordTranslateAsyncTask(EReaderActivity context, TextView resultText, LinearLayout translatingScreen, LinearLayout resultScreen) {
         super();
         this.context = context;
         this.resultText = resultText;
@@ -39,6 +41,7 @@ public class WordTranslateAsyncTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... strs) {
+        input = strs[1];
         JSONObject json = loadJSON(strs[0], strs[1]);
         try {
             result = json.getJSONArray("text").getString(0);
@@ -73,6 +76,7 @@ public class WordTranslateAsyncTask extends AsyncTask<String, Void, String> {
         resultText.setText(result);
         translatingScreen.setVisibility(View.GONE);
         resultScreen.setVisibility(View.VISIBLE);
+        context.addWord(input, result);
     }
 
 }

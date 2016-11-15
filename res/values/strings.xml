@@ -39,4 +39,6 @@
     <string name="translates_to">=</string>
     <string name="yandex_key">trnsl.1.1.20161018T161515Z.824fbc26059b6559.9e9ec70413f874a1a9a110795b060e063eb0c65b</string>
     <string name="yandex_url">https://translate.yandex.net/api/v1.5/tr.json/translate</string>
+    <string name="start_learning">Учить</string>
+    <string name="already_learning">Уже в списке</string>
 </resources>

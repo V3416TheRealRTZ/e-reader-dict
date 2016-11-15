@@ -2,31 +2,22 @@ package com.example.e_reader_dict;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Message;
 import android.text.Spannable;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
 import nl.siegmann.epublib.domain.Book;
-import nl.siegmann.epublib.domain.Resource;
-import nl.siegmann.epublib.domain.Spine;
-import nl.siegmann.epublib.domain.SpineReference;
-import nl.siegmann.epublib.epub.EpubReader;
 
 import java.io.*;
 import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.concurrent.CountDownLatch;
 
 enum BookType {TXT, EPUB}
 
@@ -37,8 +28,13 @@ public class EReaderActivity extends Activity {
     private TextView pageData;
     private FileChooser fileChooser;
     private String programDirectory;
-    private ListView booksList;
+    private ListView booksList, historyList;
     private ArrayList<String> books;
+    private ArrayList<String> engWords;
+    private ArrayList<String> rusWords;
+    private ArrayList<Integer> learnIds;
+    private ArrayList<Integer> learnLevels;
+    private ArrayList<Integer> learnDates;
     private ArrayList<String> booksPaths;
     private ArrayList<BookType> bookTypes;
     private Book currentEpub;
@@ -86,12 +82,17 @@ public class EReaderActivity extends Activity {
         pageData = (TextView) findViewById(R.id.pageData);
         mainText = (TextView) findViewById(R.id.mainTextView);
         booksList = (ListView) findViewById(R.id.booksList);
+        historyList = (ListView) findViewById(R.id.historyList);
         pages = new ArrayList<>();
         books = new ArrayList<>();
         booksPaths = new ArrayList<>();
         bookTypes = new ArrayList<>();
         createProgramDirectoryIfDoesntExist();
         addBook(null);
+        engWords = new ArrayList<>();
+        rusWords = new ArrayList<>();
+        learnIds = new ArrayList<>();
+        addWord(null, null);
         currentEpub = null;
         currentTxt = null;
         currentBookId = -1;
@@ -230,7 +231,54 @@ public class EReaderActivity extends Activity {
         updateBooks();
     }
 
+    protected void addWord(String engWord, String rusWord) {
+        File wordsFile = new File(programDirectory + File.separator + "words");
+        String readString = "";
+        engWords.clear();
+        rusWords.clear();
+        learnIds.clear();
+        try {
+            if (wordsFile.exists()) {
+                FileInputStream fIn = new FileInputStream (wordsFile);//openFileInput("books.txt");
+                InputStreamReader isr = new InputStreamReader(fIn);
+                BufferedReader reader = new BufferedReader(isr);
+                String line = reader.readLine();
+                do {
+                    readString += line + '\n';
+                    engWords.add(line);
+                    line = reader.readLine();
+                    readString += line + '\n';
+                    rusWords.add(line);
+                    line = reader.readLine();
+                    readString += line + '\n';
+                    if (line.contains("+")) {
+                        learnIds.add(engWords.size()-1);
+                    }
+                    line = reader.readLine();
+                } while (line != null);
 
+            }
+            if (engWord != null && rusWord != null) {
+                FileOutputStream fOut = new FileOutputStream(new File(wordsFile.getPath()));
+                OutputStreamWriter osw = new OutputStreamWriter(fOut);
+                if (!engWords.contains(engWord)) {
+                    osw.write(readString + engWord + '\n' + rusWord + '\n' + "-" + '\n');
+                    engWords.add(engWord);
+                    rusWords.add(rusWord);
+                } else {
+                    String isLearning = "-";
+                    if (learnIds.contains(engWords.indexOf(engWord))) {
+                        isLearning = "+";
+                    }
+                    osw.write(readString + engWord + '\n' + rusWord + '\n' + isLearning + '\n');
+                }
+                osw.flush();
+                osw.close();
+            }
+        } catch (IOException ioe)
+        {ioe.printStackTrace();}
+        updateWords();
+    }
 
     protected void updatePageNumber() {
         pageData.setText(getString(R.string.page) + " " + (currentPage + 1) + "/" + pages.size());
@@ -270,8 +318,6 @@ public class EReaderActivity extends Activity {
         }
     }
 
-
-
     private void updateBooks() {
         books.clear();
         bookTypes.clear();
@@ -289,7 +335,7 @@ public class EReaderActivity extends Activity {
                 books.add(name);
             }
         }
-        booksList.setAdapter(new ArrayAdapter<String>(this, R.layout.book_entry_layout, books));
+        booksList.setAdapter(new ArrayAdapter<String>(this, R.layout.book_entry, books));
         booksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -299,6 +345,18 @@ public class EReaderActivity extends Activity {
                 bookLoadAsyncTask.execute();
             }
         });
+    }
+
+    private void updateWords() {
+        historyList.setAdapter(new WordsHistoryAdapter(this, engWords, rusWords, learnIds));
+        /*historyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                learnIds.add(position);
+                addWord(null, null);
+            }
+        });*/
+
     }
 
     public void booksToggle(View v) {
