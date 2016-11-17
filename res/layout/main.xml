@@ -50,6 +50,11 @@
                     android:text="@string/about"
                     android:id="@+id/aboutButton" android:layout_gravity="center_horizontal" android:layout_margin="20dp"
                     android:onClick="aboutToggle"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reset"
+                    android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="reset"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -109,7 +114,7 @@
                         android:layout_height="120dp"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/no_words_message"
-                        android:id="@+id/wordMemoTextView"
+                        android:id="@+id/wordMemoText"
                         android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
                         android:singleLine="true" android:enabled="true"
                         android:gravity="center" android:background="#414141"/>

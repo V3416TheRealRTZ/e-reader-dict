@@ -13,10 +13,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import nl.siegmann.epublib.domain.Book;
+import nl.siegmann.epublib.domain.Date;
 
 import java.io.*;
 import java.text.BreakIterator;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 enum BookType {TXT, EPUB}
@@ -24,7 +28,7 @@ enum BookType {TXT, EPUB}
 public class EReaderActivity extends Activity {
     private LinearLayout booksScreen, learnScreen, historyScreen, topageScreen, aboutScreen, settingsScreen, mainScreen;
     private ImageButton booksButton, learnButton, historyButton, topageButton, settingsButton;
-    Button aboutButton, goButton;
+    Button aboutButton, goButton, rememberedButton, forgotButton, showTranslationButton;
     private TextView pageData;
     private FileChooser fileChooser;
     private String programDirectory;
@@ -34,7 +38,7 @@ public class EReaderActivity extends Activity {
     private ArrayList<String> rusWords;
     private ArrayList<Integer> learnIds;
     private ArrayList<Integer> learnLevels;
-    private ArrayList<Integer> learnDates;
+    private ArrayList<String> learnDates;
     private ArrayList<String> booksPaths;
     private ArrayList<BookType> bookTypes;
     private Book currentEpub;
@@ -42,10 +46,12 @@ public class EReaderActivity extends Activity {
     public ArrayList<String> pages;
     protected int currentPage;
     private int currentBookId;
-    private TextView mainText, topageText;
+    private TextView mainText, topageText, wordMemoText;
     private ProgressDialog progressDialog;
     private Handler handler;
     private int mainLines;
+    private boolean triedWord = false;
+    SimpleDateFormat sdf;
     /**
      * Called when the activity is first created.
      */
@@ -56,6 +62,9 @@ public class EReaderActivity extends Activity {
         mainScreen = (LinearLayout)findViewById(R.id.mainScreen);
         booksScreen = (LinearLayout)findViewById(R.id.booksScreen);
         booksButton = (ImageButton) findViewById(R.id.booksButton);
+        rememberedButton = (Button) findViewById(R.id.rememberedButton);
+        forgotButton = (Button) findViewById(R.id.forgotButton);
+        showTranslationButton = (Button) findViewById(R.id.translateButton);
         learnScreen = (LinearLayout)findViewById(R.id.learnScreen);
         learnButton = (ImageButton) findViewById(R.id.learnButton);
         historyScreen = (LinearLayout)findViewById(R.id.historyScreen);
@@ -63,6 +72,7 @@ public class EReaderActivity extends Activity {
         topageScreen = (LinearLayout)findViewById(R.id.topageScreen);
         topageButton = (ImageButton) findViewById(R.id.topageButton);
         topageText = (TextView) findViewById(R.id.topageText);
+        wordMemoText = (TextView) findViewById(R.id.wordMemoText);
         goButton = (Button) findViewById(R.id.goButton);
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +102,9 @@ public class EReaderActivity extends Activity {
         engWords = new ArrayList<>();
         rusWords = new ArrayList<>();
         learnIds = new ArrayList<>();
+        learnLevels = new ArrayList<>();
+        learnDates = new ArrayList<>();
+        sdf = new SimpleDateFormat("dd.MM.yyyy");
         addWord(null, null);
         currentEpub = null;
         currentTxt = null;
@@ -234,9 +247,12 @@ public class EReaderActivity extends Activity {
     protected void addWord(String engWord, String rusWord) {
         File wordsFile = new File(programDirectory + File.separator + "words");
         String readString = "";
+        Calendar c = Calendar.getInstance();
         engWords.clear();
         rusWords.clear();
-        learnIds.clear();
+        //learnIds.clear();
+        //learnLevels.clear();
+        //learnDates.clear();
         try {
             if (wordsFile.exists()) {
                 FileInputStream fIn = new FileInputStream (wordsFile);//openFileInput("books.txt");
@@ -251,33 +267,69 @@ public class EReaderActivity extends Activity {
                     rusWords.add(line);
                     line = reader.readLine();
                     readString += line + '\n';
-                    if (line.contains("+")) {
-                        learnIds.add(engWords.size()-1);
+                    if (line != null && line.contains("+")) {
+                        boolean newWord = (!learnIds.contains(engWords.size()-1));
+                        if (newWord) {
+                            learnIds.add(engWords.size()-1);
+                        }
+                        line = reader.readLine();
+                        readString += line + '\n';
+                        if (newWord) {
+                            learnLevels.add(Integer.parseInt(line));
+                        }
+                        line = reader.readLine();
+                        readString += line + '\n';
+                        if (newWord) {
+                            learnDates.add(line);
+                        }
                     }
                     line = reader.readLine();
+
                 } while (line != null);
 
             }
-            if (engWord != null && rusWord != null) {
-                FileOutputStream fOut = new FileOutputStream(new File(wordsFile.getPath()));
-                OutputStreamWriter osw = new OutputStreamWriter(fOut);
-                if (!engWords.contains(engWord)) {
-                    osw.write(readString + engWord + '\n' + rusWord + '\n' + "-" + '\n');
-                    engWords.add(engWord);
-                    rusWords.add(rusWord);
+            readString = "";
+            for (int i =0; i < engWords.size(); ++i) {
+                if (learnIds.contains(i)) {
+                    int id = learnIds.indexOf(i);
+                    int level = learnLevels.get(id);
+                    String date = learnDates.get(id);
+                    readString += engWords.get(i) + '\n' + rusWords.get(i) + '\n' + "+" + '\n' + level + '\n' + date + '\n';
                 } else {
-                    String isLearning = "-";
-                    if (learnIds.contains(engWords.indexOf(engWord))) {
-                        isLearning = "+";
-                    }
-                    osw.write(readString + engWord + '\n' + rusWord + '\n' + isLearning + '\n');
+                    readString += engWords.get(i) + '\n' + rusWords.get(i) + '\n' + "-" + '\n';
                 }
-                osw.flush();
-                osw.close();
             }
+            FileOutputStream fOut = new FileOutputStream(new File(wordsFile.getPath()));
+            OutputStreamWriter osw = new OutputStreamWriter(fOut);
+            if (engWord != null && rusWord != null && !engWords.contains(engWord)) {
+                osw.write(readString + engWord + '\n' + rusWord + '\n' + "-" + '\n');
+                engWords.add(engWord);
+                rusWords.add(rusWord);
+            } else {
+                osw.write(readString);
+            }
+            osw.flush();
+            osw.close();
         } catch (IOException ioe)
         {ioe.printStackTrace();}
         updateWords();
+    }
+
+    protected void learnWord(String word) {
+        learnIds.add(engWords.indexOf(word));
+        learnLevels.add(0);
+        Calendar c = Calendar.getInstance();
+        learnDates.add(sdf.format(c.getTime()));
+        addWord(null, null);
+    }
+
+    public void reset(View v) throws IOException {
+        File wordsFile = new File(programDirectory + File.separator + "words");
+        wordsFile.delete();
+        File booksFile = new File(programDirectory + File.separator + "books");
+        booksFile.delete();
+        addBook(null);
+        addWord(null, null);
     }
 
     protected void updatePageNumber() {
@@ -349,6 +401,8 @@ public class EReaderActivity extends Activity {
 
     private void updateWords() {
         historyList.setAdapter(new WordsHistoryAdapter(this, engWords, rusWords, learnIds));
+        updateMemos();
+
         /*historyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -357,6 +411,101 @@ public class EReaderActivity extends Activity {
             }
         });*/
 
+    }
+
+    private void updateMemos() {
+        final ArrayList<Integer> currentMemos = new ArrayList<>();
+        Calendar c = Calendar.getInstance();
+        java.util.Date wordDate = c.getTime();
+        for (int i = 0; i < learnIds.size(); ++i) {
+            try {
+                wordDate = sdf.parse(learnDates.get(i));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            if (wordDate.before(c.getTime()) && learnLevels.get(i) <= 8) {
+                currentMemos.add(learnIds.get(i));
+            }
+        }
+
+        if (currentMemos.size() == 0) {
+            showTranslationButton.setEnabled(false);
+            rememberedButton.setEnabled(false);
+            forgotButton.setEnabled(false);
+            wordMemoText.setText(getString(R.string.no_words_message));
+        } else {
+            if (triedWord) {
+                wordMemoText.setText(rusWords.get(currentMemos.get(0)));
+                showTranslationButton.setEnabled(false);
+                rememberedButton.setEnabled(true);
+                forgotButton.setEnabled(true);
+                rememberedButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        triedWord = false;
+
+                        Calendar cc = Calendar.getInstance();
+                        int id = learnIds.indexOf(currentMemos.get(0));
+                        int level = learnLevels.get(id);
+                        switch (level) {
+                            case 0:
+                                cc.add(Calendar.DATE, 1);
+                                break;
+                            case 1:
+                                cc.add(Calendar.DATE, 3);
+                                break;
+                            case 2:
+                                cc.add(Calendar.DATE, 5);
+                                break;
+                            case 3:
+                                cc.add(Calendar.WEEK_OF_MONTH, 1);
+                                break;
+                            case 4:
+                                cc.add(Calendar.WEEK_OF_MONTH, 2);
+                                break;
+                            case 5:
+                                cc.add(Calendar.MONTH, 1);
+                                break;
+                            case 6:
+                                cc.add(Calendar.MONTH, 3);
+                                break;
+                            case 7:
+                                cc.add(Calendar.MONTH, 6);
+                                break;
+                            case 8:
+                                cc.add(Calendar.YEAR, 1);
+                                break;
+                        }
+                        learnDates.set(id, sdf.format(cc.getTime()));
+                        learnLevels.set(id, level+1);
+
+                        updateMemos();
+                    }
+                });
+                forgotButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        triedWord = false;
+                        Calendar cc = Calendar.getInstance();
+                        cc.add(Calendar.DATE, 1);
+                        learnDates.set(learnIds.indexOf(currentMemos.get(0)), sdf.format(cc.getTime()));
+                        addWord(null, null);
+                    }
+                });
+            } else {
+                wordMemoText.setText(engWords.get(currentMemos.get(0)));
+                showTranslationButton.setEnabled(true);
+                rememberedButton.setEnabled(false);
+                forgotButton.setEnabled(false);
+                showTranslationButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        triedWord = true;
+                        addWord(null, null);
+                    }
+                });
+            }
+        }
     }
 
     public void booksToggle(View v) {

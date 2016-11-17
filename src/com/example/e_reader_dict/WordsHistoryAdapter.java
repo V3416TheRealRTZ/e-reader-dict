@@ -15,9 +15,9 @@ public class WordsHistoryAdapter extends BaseAdapter {
 
     ArrayList<String> engWords, rusWords;
     ArrayList<Integer> learnIds;
-    Context mContext;
+    EReaderActivity mContext;
 
-    public WordsHistoryAdapter(Context mContext, ArrayList<String> eng, ArrayList<String> rus, ArrayList<Integer> learns) {
+    public WordsHistoryAdapter(EReaderActivity mContext, ArrayList<String> eng, ArrayList<String> rus, ArrayList<Integer> learns) {
         engWords = eng;
         rusWords = rus;
         learnIds = learns;
@@ -40,13 +40,20 @@ public class WordsHistoryAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = inflater.inflate(R.layout.history_entry, parent, false);
 
         TextView engWordText = (TextView) row.findViewById(R.id.engWordText);
         TextView rusWordText = (TextView) row.findViewById(R.id.rusWordText);
         Button startLearningButton = (Button) row.findViewById(R.id.startLearningButton);
+
+        startLearningButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.learnWord(engWords.get(position));
+            }
+        });
 
         engWordText.setText(engWords.get(position));
         rusWordText.setText(rusWords.get(position));
