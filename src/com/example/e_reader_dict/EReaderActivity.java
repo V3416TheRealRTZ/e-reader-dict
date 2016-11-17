@@ -423,7 +423,10 @@ public class EReaderActivity extends Activity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            if (wordDate.before(c.getTime()) && learnLevels.get(i) <= 8) {
+            if (learnLevels.get(i) > 8) {
+                learnLevels.remove(i);
+            }
+            if (wordDate.before(c.getTime())) {
                 currentMemos.add(learnIds.get(i));
             }
         }
@@ -489,6 +492,7 @@ public class EReaderActivity extends Activity {
                         Calendar cc = Calendar.getInstance();
                         cc.add(Calendar.DATE, 1);
                         learnDates.set(learnIds.indexOf(currentMemos.get(0)), sdf.format(cc.getTime()));
+                        learnLevels.set(learnIds.indexOf(currentMemos.get(0)), 0);
                         addWord(null, null);
                     }
                 });

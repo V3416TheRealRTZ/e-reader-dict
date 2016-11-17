@@ -10,18 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="674aa55c-488c-4f33-8fd3-94d0d76fb36b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/EReaderActivity.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/EReaderActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$id.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$layout.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$string.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R.class" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/com/example/e_reader_dict/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.apk" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/e-reader-dict/e-reader-dict.unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java" afterPath="$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/e_reader_dict/WordsHistoryAdapter.java" afterPath="$PROJECT_DIR$/src/com/example/e_reader_dict/WordsHistoryAdapter.java" />
     </list>
     <ignored path="e-reader-dict.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,8 +129,8 @@
       <file leaf-file-name="EReaderActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41486812">
-              <caret line="430" column="34" selection-start-line="430" selection-start-column="34" selection-end-line="430" selection-end-column="34" />
+            <state vertical-scroll-proportion="-1.0119904">
+              <caret line="426" column="38" selection-start-line="426" selection-start-column="38" selection-end-line="426" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getClickableSpan#0;class#EReaderActivity#0" expanded="false" />
@@ -152,13 +142,13 @@
                 <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
                 <element signature="e#14630#14656#0" expanded="true" />
                 <element signature="e#15935#15962#0" expanded="true" />
-                <element signature="e#17288#17324#0" expanded="true" />
-                <element signature="e#17653#19485#0" expanded="true" />
-                <element signature="e#19484#19485#0" expanded="true" />
-                <element signature="e#19536#19989#0" expanded="true" />
-                <element signature="e#19988#19989#0" expanded="true" />
-                <element signature="e#20299#20534#0" expanded="true" />
-                <element signature="e#20533#20534#0" expanded="true" />
+                <element signature="e#17356#17392#0" expanded="true" />
+                <element signature="e#17721#19553#0" expanded="true" />
+                <element signature="e#19552#19553#0" expanded="true" />
+                <element signature="e#19604#20140#0" expanded="true" />
+                <element signature="e#20139#20140#0" expanded="true" />
+                <element signature="e#20450#20685#0" expanded="true" />
+                <element signature="e#20684#20685#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -869,7 +859,13 @@
       <option name="project" value="LOCAL" />
       <updated>1479248027127</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="learning works (functionality done)">
+      <created>1479407602140</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1479407602141</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -896,7 +892,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32268122" sideWeight="0.2018312" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.4920509" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281372" sideWeight="0.3379777" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281372" sideWeight="0.3379777" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2503981" sideWeight="0.42575407" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -935,14 +931,15 @@
     <MESSAGE value="word translating" />
     <MESSAGE value="word translating via Yandex Translate API" />
     <MESSAGE value="translation history" />
-    <option name="LAST_COMMIT_MESSAGE" value="translation history" />
+    <MESSAGE value="learning works (functionality done)" />
+    <option name="LAST_COMMIT_MESSAGE" value="learning works (functionality done)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java</url>
-          <line>481</line>
+          <line>484</line>
           <properties />
           <option name="timeStamp" value="102" />
         </line-breakpoint>
@@ -1041,13 +1038,13 @@
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
             <element signature="e#14630#14656#0" expanded="true" />
             <element signature="e#15935#15962#0" expanded="true" />
-            <element signature="e#17288#17324#0" expanded="true" />
-            <element signature="e#17653#19485#0" expanded="true" />
-            <element signature="e#19484#19485#0" expanded="true" />
-            <element signature="e#19536#19989#0" expanded="true" />
-            <element signature="e#19988#19989#0" expanded="true" />
-            <element signature="e#20299#20534#0" expanded="true" />
-            <element signature="e#20533#20534#0" expanded="true" />
+            <element signature="e#17356#17392#0" expanded="true" />
+            <element signature="e#17721#19553#0" expanded="true" />
+            <element signature="e#19552#19553#0" expanded="true" />
+            <element signature="e#19604#20140#0" expanded="true" />
+            <element signature="e#20139#20140#0" expanded="true" />
+            <element signature="e#20450#20685#0" expanded="true" />
+            <element signature="e#20684#20685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1148,13 +1145,13 @@
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
             <element signature="e#14630#14656#0" expanded="true" />
             <element signature="e#15935#15962#0" expanded="true" />
-            <element signature="e#17288#17324#0" expanded="true" />
-            <element signature="e#17653#19485#0" expanded="true" />
-            <element signature="e#19484#19485#0" expanded="true" />
-            <element signature="e#19536#19989#0" expanded="true" />
-            <element signature="e#19988#19989#0" expanded="true" />
-            <element signature="e#20299#20534#0" expanded="true" />
-            <element signature="e#20533#20534#0" expanded="true" />
+            <element signature="e#17356#17392#0" expanded="true" />
+            <element signature="e#17721#19553#0" expanded="true" />
+            <element signature="e#19552#19553#0" expanded="true" />
+            <element signature="e#19604#20140#0" expanded="true" />
+            <element signature="e#20139#20140#0" expanded="true" />
+            <element signature="e#20450#20685#0" expanded="true" />
+            <element signature="e#20684#20685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1221,13 +1218,13 @@
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
             <element signature="e#14630#14656#0" expanded="true" />
             <element signature="e#15935#15962#0" expanded="true" />
-            <element signature="e#17288#17324#0" expanded="true" />
-            <element signature="e#17653#19485#0" expanded="true" />
-            <element signature="e#19484#19485#0" expanded="true" />
-            <element signature="e#19536#19989#0" expanded="true" />
-            <element signature="e#19988#19989#0" expanded="true" />
-            <element signature="e#20299#20534#0" expanded="true" />
-            <element signature="e#20533#20534#0" expanded="true" />
+            <element signature="e#17356#17392#0" expanded="true" />
+            <element signature="e#17721#19553#0" expanded="true" />
+            <element signature="e#19552#19553#0" expanded="true" />
+            <element signature="e#19604#20140#0" expanded="true" />
+            <element signature="e#20139#20140#0" expanded="true" />
+            <element signature="e#20450#20685#0" expanded="true" />
+            <element signature="e#20684#20685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1265,13 +1262,13 @@
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
             <element signature="e#14630#14656#0" expanded="true" />
             <element signature="e#15935#15962#0" expanded="true" />
-            <element signature="e#17288#17324#0" expanded="true" />
-            <element signature="e#17653#19485#0" expanded="true" />
-            <element signature="e#19484#19485#0" expanded="true" />
-            <element signature="e#19536#19989#0" expanded="true" />
-            <element signature="e#19988#19989#0" expanded="true" />
-            <element signature="e#20299#20534#0" expanded="true" />
-            <element signature="e#20533#20534#0" expanded="true" />
+            <element signature="e#17356#17392#0" expanded="true" />
+            <element signature="e#17721#19553#0" expanded="true" />
+            <element signature="e#19552#19553#0" expanded="true" />
+            <element signature="e#19604#20140#0" expanded="true" />
+            <element signature="e#20139#20140#0" expanded="true" />
+            <element signature="e#20450#20685#0" expanded="true" />
+            <element signature="e#20684#20685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1576,8 +1573,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/e_reader_dict/EReaderActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41486812">
-          <caret line="430" column="34" selection-start-line="430" selection-start-column="34" selection-end-line="430" selection-end-column="34" />
+        <state vertical-scroll-proportion="-1.0119904">
+          <caret line="426" column="38" selection-start-line="426" selection-start-column="38" selection-end-line="426" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getClickableSpan#0;class#EReaderActivity#0" expanded="false" />
@@ -1589,13 +1586,13 @@
             <element signature="method#gotoPage#0;class#EReaderActivity#0" expanded="false" />
             <element signature="e#14630#14656#0" expanded="true" />
             <element signature="e#15935#15962#0" expanded="true" />
-            <element signature="e#17288#17324#0" expanded="true" />
-            <element signature="e#17653#19485#0" expanded="true" />
-            <element signature="e#19484#19485#0" expanded="true" />
-            <element signature="e#19536#19989#0" expanded="true" />
-            <element signature="e#19988#19989#0" expanded="true" />
-            <element signature="e#20299#20534#0" expanded="true" />
-            <element signature="e#20533#20534#0" expanded="true" />
+            <element signature="e#17356#17392#0" expanded="true" />
+            <element signature="e#17721#19553#0" expanded="true" />
+            <element signature="e#19552#19553#0" expanded="true" />
+            <element signature="e#19604#20140#0" expanded="true" />
+            <element signature="e#20139#20140#0" expanded="true" />
+            <element signature="e#20450#20685#0" expanded="true" />
+            <element signature="e#20684#20685#0" expanded="true" />
           </folding>
         </state>
       </provider>
