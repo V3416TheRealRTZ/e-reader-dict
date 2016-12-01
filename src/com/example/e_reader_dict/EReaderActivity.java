@@ -93,17 +93,17 @@ public class EReaderActivity extends Activity {
         mainText = (TextView) findViewById(R.id.mainTextView);
         booksList = (ListView) findViewById(R.id.booksList);
         historyList = (ListView) findViewById(R.id.historyList);
-        pages = new ArrayList<>();
-        books = new ArrayList<>();
-        booksPaths = new ArrayList<>();
-        bookTypes = new ArrayList<>();
+        pages = new ArrayList<String>();
+        books = new ArrayList<String>();
+        booksPaths = new ArrayList<String>();
+        bookTypes = new ArrayList<BookType>();
         createProgramDirectoryIfDoesntExist();
         addBook(null);
-        engWords = new ArrayList<>();
-        rusWords = new ArrayList<>();
-        learnIds = new ArrayList<>();
-        learnLevels = new ArrayList<>();
-        learnDates = new ArrayList<>();
+        engWords = new ArrayList<String>();
+        rusWords = new ArrayList<String>();
+        learnIds = new ArrayList<Integer>();
+        learnLevels = new ArrayList<Integer>();
+        learnDates = new ArrayList<String>();
         sdf = new SimpleDateFormat("dd.MM.yyyy");
         addWord(null, null);
         currentEpub = null;
@@ -180,7 +180,7 @@ public class EReaderActivity extends Activity {
     }
 
     private ArrayList<Boolean> formMenusArray(int size, int id, boolean value) {
-        ArrayList<Boolean> result = new ArrayList<>();
+        ArrayList<Boolean> result = new ArrayList<Boolean>();
         for (int i =0; i < size; ++i) {
             if (i == id) {
                 result.add(value);
@@ -414,7 +414,7 @@ public class EReaderActivity extends Activity {
     }
 
     private void updateMemos() {
-        final ArrayList<Integer> currentMemos = new ArrayList<>();
+        final ArrayList<Integer> currentMemos = new ArrayList<Integer>();
         Calendar c = Calendar.getInstance();
         java.util.Date wordDate = c.getTime();
         for (int i = 0; i < learnIds.size(); ++i) {
@@ -539,7 +539,7 @@ public class EReaderActivity extends Activity {
 
     public void chooseBookFile(View v) {
         fileChooser = new FileChooser(this);
-        ArrayList<String> okExtensions = new ArrayList<>();
+        ArrayList<String> okExtensions = new ArrayList<String>();
         okExtensions.add(".txt");
         okExtensions.add(".epub");
         fileChooser.setExtensions(okExtensions);

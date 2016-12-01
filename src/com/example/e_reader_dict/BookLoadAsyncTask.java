@@ -32,7 +32,7 @@ class BookLoadAsyncTask extends AsyncTask<Void, Integer, Void> {
         this.bookPath = bookPath;
         this.mainText = mainText;
         this.booksScreen = booksScreen;
-        pages = new ArrayList<>();
+        pages = new ArrayList<String>();
         this.activity = activity;
         this.loadMessage = loadMessage;
         chapter = -1;
@@ -133,7 +133,7 @@ class BookLoadAsyncTask extends AsyncTask<Void, Integer, Void> {
     }
 
     private ArrayList<String> getPages(String rawText) throws InterruptedException {
-        ArrayList<String> pages = new ArrayList<>();
+        ArrayList<String> pages = new ArrayList<String>();
         int curIndex = 0;
         int maxLines = booksScreen.getHeight()/mainText.getLineHeight() - 1;
         int maxWidth = 200;

@@ -18,6 +18,7 @@
     <string name="about">Справка</string>
     <string name="sellout">Оставить отзыв в Play Market!</string>
     <string name="about_text">
+        Версия: 1.0.0.23\n\n
         Программисты:\n
         Кравченко Иван\n
         Ионченкова Мария\n
@@ -42,4 +43,5 @@
     <string name="start_learning">Учить</string>
     <string name="already_learning">Уже в списке</string>
     <string name="reset">Сброс</string>
+    <string name="version">1.0.0.23</string>
 </resources>
