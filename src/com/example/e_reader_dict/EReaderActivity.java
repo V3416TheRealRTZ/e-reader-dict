@@ -78,8 +78,8 @@ public class EReaderActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String str = topageText.getText().toString();
-                Integer pageNumber = Integer.parseInt(str);
-                if (pageNumber != null) {
+                if (str.length() > 0) {
+                    Integer pageNumber = Integer.parseInt(str);
                     gotoPage(pageNumber - 1);
                     topageToggle(null);
                 }
@@ -213,13 +213,13 @@ public class EReaderActivity extends Activity {
                 InputStreamReader isr = new InputStreamReader(fIn);
                 BufferedReader reader = new BufferedReader(isr);
                 String line = reader.readLine();
-                do {
+                while (line != null) {
                     readString += line + '\n';
                     Log.i("Path", "path: " + line + '\n');
                     booksPaths.add(line);
                     line = reader.readLine();
                     /**/
-                } while (line != null);
+                }
                 /*
                 char[] inputBuffer = new char[10000];
                 isr.read(inputBuffer);
@@ -244,6 +244,21 @@ public class EReaderActivity extends Activity {
         updateBooks();
     }
 
+    protected void removeBook(int bookId) throws IOException {
+        booksPaths.remove(bookId);
+        books.remove(bookId);
+        bookTypes.remove(bookId);
+        File booksFile = new File(programDirectory + File.separator + "books");
+        FileOutputStream fOut = new FileOutputStream(new File(booksFile.getPath()));
+        OutputStreamWriter osw = new OutputStreamWriter(fOut);
+        for (int i =0; i < booksPaths.size(); ++i) {
+            osw.write(booksPaths.get(i) + '\n');
+        }
+        osw.flush();
+        osw.close();
+        updateBooks();
+    }
+
     protected void addWord(String engWord, String rusWord) {
         File wordsFile = new File(programDirectory + File.separator + "words");
         String readString = "";
@@ -259,7 +274,7 @@ public class EReaderActivity extends Activity {
                 InputStreamReader isr = new InputStreamReader(fIn);
                 BufferedReader reader = new BufferedReader(isr);
                 String line = reader.readLine();
-                do {
+                while (line != null) {
                     readString += line + '\n';
                     engWords.add(line);
                     line = reader.readLine();
@@ -285,7 +300,7 @@ public class EReaderActivity extends Activity {
                     }
                     line = reader.readLine();
 
-                } while (line != null);
+                }
 
             }
             readString = "";
@@ -387,7 +402,7 @@ public class EReaderActivity extends Activity {
                 books.add(name);
             }
         }
-        booksList.setAdapter(new ArrayAdapter<String>(this, R.layout.book_entry, books));
+        booksList.setAdapter(new BooksAdapter(this, books));
         booksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

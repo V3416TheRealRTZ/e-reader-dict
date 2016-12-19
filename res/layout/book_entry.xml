@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" android:gravity="center">
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@android:id/text1"
-          android:layout_width="fill_parent"
+          android:id="@+id/bookText"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:textAppearance="?android:attr/textAppearanceListItemSmall"
           android:minHeight="?android:attr/listPreferredItemHeightSmall" android:gravity="left|center_vertical"
-          android:paddingLeft="20dp"/>
+          android:paddingLeft="20dp" android:layout_weight="10"/>
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="-"
+            android:id="@+id/removeBookButton"/>
+</LinearLayout>
