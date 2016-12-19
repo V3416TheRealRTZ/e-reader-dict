@@ -385,6 +385,12 @@ public class EReaderActivity extends Activity {
         }
     }
 
+    protected void openBook(int id) {
+        currentBookId = id;
+        BookLoadAsyncTask bookLoadAsyncTask = new BookLoadAsyncTask(EReaderActivity.this, booksPaths.get((int)id), mainText, booksScreen, getString(R.string.loadtxt));
+        bookLoadAsyncTask.execute();
+    }
+
     private void updateBooks() {
         books.clear();
         bookTypes.clear();
@@ -403,7 +409,7 @@ public class EReaderActivity extends Activity {
             }
         }
         booksList.setAdapter(new BooksAdapter(this, books));
-        booksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*booksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Log.i("book id", "id: " + id);
@@ -411,7 +417,7 @@ public class EReaderActivity extends Activity {
                 BookLoadAsyncTask bookLoadAsyncTask = new BookLoadAsyncTask(EReaderActivity.this, booksPaths.get((int)id), mainText, booksScreen, getString(R.string.loadtxt));
                 bookLoadAsyncTask.execute();
             }
-        });
+        });*/
     }
 
     private void updateWords() {

@@ -45,6 +45,14 @@ public class BooksAdapter extends BaseAdapter {
         View row = inflater.inflate(R.layout.book_entry, parent, false);
 
         TextView bookText = (TextView) row.findViewById(R.id.bookText);
+
+        bookText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.openBook(position);
+            }
+        });
+
         Button removeBookButton = (Button) row.findViewById(R.id.removeBookButton);
 
         removeBookButton.setOnClickListener(new View.OnClickListener() {
